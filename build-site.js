@@ -104,10 +104,9 @@ function header(activePage) {
 ${nav('index.html', 'Home')}
 ${nav('about.html', 'About')}
         <div class="nav-dropdown">
-          <a href="#" class="nav-link${['carpentry.html','roofing.html','flooring.html','painting.html','doors-windows.html','home-repair.html'].includes(activePage) ? ' active' : ''}">Home Services <i class="fas fa-chevron-down"></i></a>
+          <a href="#" class="nav-link${['carpentry.html','flooring.html','painting.html','doors-windows.html','home-repair.html'].includes(activePage) ? ' active' : ''}">Home Services <i class="fas fa-chevron-down"></i></a>
           <div class="dropdown-menu">
             <a href="carpentry.html">Carpentry</a>
-            <a href="roofing.html">Roofing</a>
             <a href="flooring.html">Flooring</a>
             <a href="painting.html">Painting &amp; Finishing</a>
             <a href="doors-windows.html">Doors &amp; Windows</a>
@@ -178,7 +177,6 @@ function footer() {
         </div>
         <div class="footer-col">
           <a href="carpentry.html">Carpentry</a>
-          <a href="roofing.html">Roofing</a>
           <a href="flooring.html">Flooring</a>
           <a href="painting.html">Painting &amp; Finishing</a>
           <a href="doors-windows.html">Doors &amp; Windows</a>
@@ -439,11 +437,6 @@ ${header('index.html')}
             <p>Custom woodwork, trim, cabinetry, framing, and structural repairs done right.</p>
           </div>
           <div class="service-card">
-            <div class="service-icon"><i class="fas fa-house-chimney"></i></div>
-            <h3>Roofing</h3>
-            <p>Roof repairs, replacements, and inspections to keep your home protected.</p>
-          </div>
-          <div class="service-card">
             <div class="service-icon"><i class="fas fa-border-all"></i></div>
             <h3>Flooring</h3>
             <p>Hardwood, tile, laminate, and vinyl installation and refinishing.</p>
@@ -675,7 +668,6 @@ ${header('index.html')}
         <select name="service">
           <option value="" disabled selected>Select a Service</option>
           <option>Carpentry</option>
-          <option>Roofing</option>
           <option>Flooring</option>
           <option>Painting &amp; Finishing</option>
           <option>Doors &amp; Windows</option>
@@ -863,7 +855,6 @@ ${header('contact.html')}
               <select id="service" name="service">
                 <option value="">Select a service...</option>
                 <option>Carpentry</option>
-                <option>Roofing</option>
                 <option>Flooring</option>
                 <option>Painting &amp; Finishing</option>
                 <option>Doors &amp; Windows</option>
@@ -1154,7 +1145,6 @@ ${header('service-areas.html')}
       <p>No matter where you are in the tri-state region, our full range of property maintenance, landscaping, and seasonal services is available to you.</p>
       <div class="services-tag-grid">
         <a href="carpentry.html" class="service-tag">Carpentry</a>
-        <a href="roofing.html" class="service-tag">Roofing</a>
         <a href="flooring.html" class="service-tag">Flooring</a>
         <a href="painting.html" class="service-tag">Painting &amp; Finishing</a>
         <a href="doors-windows.html" class="service-tag">Doors &amp; Windows</a>
@@ -1211,38 +1201,8 @@ const services = [
       { q: 'Do you build custom furniture?', a: 'We specialize in built-in furniture like bookshelves, window seats, and storage units. For standalone furniture, contact us to discuss your project.' }
     ],
     otherServices: [
-      { href: 'roofing.html', icon: 'fas fa-house-chimney', title: 'Roofing', desc: 'Roof repairs, replacements, and inspections to keep your home protected from the elements.' },
       { href: 'painting.html', icon: 'fas fa-paint-roller', title: 'Painting & Finishing', desc: 'Interior and exterior painting with clean lines and lasting finishes.' },
       { href: 'home-repair.html', icon: 'fas fa-wrench', title: 'Home Repair', desc: 'General handyman services and maintenance to keep your home in top shape.' }
-    ]
-  },
-  {
-    file: 'roofing.html', title: 'Roofing', heroTitle: 'Roofing', breadcrumbParent: 'Home Services',
-    metaDesc: 'Reliable roofing services in Milford PA — repairs, replacements, inspections, and gutter work by Milford Property Maintenance.',
-    content: {
-      image: 'https://images.unsplash.com/photo-1632759145351-1d592919f522?w=600&q=80',
-      imageAlt: 'Roofing work on residential home',
-      heading: 'Protecting Your Home from the Top Down',
-      paragraphs: [
-        'Your roof is your home\'s first line of defense. Milford Property Maintenance provides professional roofing services including repairs, replacements, inspections, and storm damage restoration for residential properties throughout the Tri-State Area.',
-        'From missing shingles and leak repairs to full roof replacements, our crew works efficiently and safely to get the job done right. We use quality materials from trusted manufacturers and stand behind every installation.',
-        'Don\'t wait for a small problem to become a big one. Schedule an inspection today and let us make sure your roof is ready for whatever weather comes next.'
-      ]
-    },
-    features: [
-      { icon: 'fas fa-tools', title: 'Roof Repairs', desc: 'Fast, reliable fixes for leaks, missing shingles, flashing damage, and storm-related issues.' },
-      { icon: 'fas fa-house-chimney', title: 'Full Replacements', desc: 'Complete tear-off and re-roofing with quality materials and clean, professional installation.' },
-      { icon: 'fas fa-search', title: 'Inspections', desc: 'Thorough roof inspections to identify problems early and extend the life of your roof.' }
-    ],
-    faqItems: [
-      { q: 'What roofing materials do you work with?', a: 'We work with asphalt shingles, architectural shingles, metal roofing, and flat roofing systems. We\'ll recommend the best option for your home and budget.' },
-      { q: 'Do you handle storm damage repairs?', a: 'Yes. We respond quickly to storm damage and can work with your insurance company to streamline the claims process.' },
-      { q: 'How often should I have my roof inspected?', a: 'We recommend annual inspections, especially after severe weather. Regular inspections can catch small issues before they become costly repairs.' }
-    ],
-    otherServices: [
-      { href: 'carpentry.html', icon: 'fas fa-hammer', title: 'Carpentry', desc: 'Custom woodwork, trim, framing, and structural repairs.' },
-      { href: 'painting.html', icon: 'fas fa-paint-roller', title: 'Painting & Finishing', desc: 'Interior and exterior painting to complement your home.' },
-      { href: 'home-repair.html', icon: 'fas fa-wrench', title: 'Home Repair', desc: 'General handyman services and maintenance.' }
     ]
   },
   {
@@ -1317,7 +1277,7 @@ const services = [
     otherServices: [
       { href: 'carpentry.html', icon: 'fas fa-hammer', title: 'Carpentry', desc: 'Custom trim and framing around doors and windows.' },
       { href: 'painting.html', icon: 'fas fa-paint-roller', title: 'Painting & Finishing', desc: 'Fresh paint to complement your new installations.' },
-      { href: 'roofing.html', icon: 'fas fa-house-chimney', title: 'Roofing', desc: 'Roof repairs and replacements.' }
+      { href: 'home-repair.html', icon: 'fas fa-wrench', title: 'Home Repair', desc: 'General handyman services and maintenance.' }
     ]
   },
   {
