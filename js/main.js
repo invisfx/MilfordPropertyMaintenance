@@ -186,3 +186,16 @@ if (filterBtns.length && galleryItems.length) {
 }
 
 // Contact form is handled by Netlify Forms — no JS override needed
+
+// ============================
+// Email Obfuscation
+// ============================
+(function() {
+  var u = 'mp_maintenance';
+  var d = 'yahoo.com';
+  var e = u + '@' + d;
+  document.querySelectorAll('[data-email]').forEach(function(el) {
+    el.href = 'mailto:' + e;
+    if (el.dataset.email === 'text') el.textContent = e;
+  });
+})();
