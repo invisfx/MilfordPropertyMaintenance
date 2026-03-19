@@ -18,23 +18,24 @@ The client (Bryan) should own all of these accounts. Use a password manager — 
 
 | Item | Details |
 |------|---------|
-| **Platform** | Netlify (free tier) |
-| **URL** | https://app.netlify.com |
-| **Account Owner** | Client should create account |
+| **Current Host** | GitHub Pages (temporary) |
+| **Current URL** | https://invisfx.github.io/MilfordPropertyMaintenance |
+| **Target Host** | Netlify (free tier) |
+| **Account Owner** | Developer sets up initially, then transfers to client |
 | **Repo Connected** | github.com/invisfx/MilfordPropertyMaintenance |
-| **Build Command** | `node build-site.js` |
-| **Publish Directory** | `/` |
+| **Publish Directory** | `/` (static HTML, no build step needed) |
 | **Forms** | Netlify Forms (built-in, submissions visible in Netlify dashboard) |
 | **SSL** | Automatic via Netlify (free) |
 
 ### Netlify Setup Steps
-1. Sign up at netlify.com (use GitHub login for easiest setup)
+1. Developer signs up at netlify.com and creates the site
 2. Click "Add new site" > "Import an existing project"
 3. Connect the GitHub repo: `invisfx/MilfordPropertyMaintenance`
-4. Build settings are auto-detected from `netlify.toml`
+4. Build settings: leave build command blank (site is static HTML), publish directory `/`
 5. Click "Deploy site"
 6. After deploy, go to Site settings > Domain management > Add custom domain
 7. Follow Netlify's instructions to update GoDaddy DNS
+8. Transfer site ownership to client's Netlify account
 
 ### DNS Records (GoDaddy)
 Once Netlify assigns a site, update GoDaddy DNS to:
@@ -54,15 +55,14 @@ Once Netlify assigns a site, update GoDaddy DNS to:
 |------|---------|
 | **URL** | https://analytics.google.com |
 | **Account Owner** | Client should create account |
-| **Status** | Placeholder code installed — needs real Measurement ID |
+| **Status** | NOT installed — GA4 tracking code is not in the live HTML files. `build-site.js` has placeholders but the live site does not use `build-site.js` output. |
 
 ### Setup Steps
 1. Go to https://analytics.google.com and sign in with a Google account
 2. Create a new property for "milfordpropertymaintenance.com"
 3. Copy the Measurement ID (looks like `G-XXXXXXXXXX`)
-4. In `build-site.js`, replace `G-XXXXXXXXXX` in the `ga4Id` field with the real ID
-5. Run `node build-site.js` to regenerate all pages
-6. Deploy to Netlify (push to GitHub)
+4. Add the GA4 tracking snippet to all HTML files — either manually in each `<head>` section, or by adding it to a shared JS snippet included on every page
+5. Deploy to Netlify (push to GitHub)
 
 ---
 
@@ -72,16 +72,15 @@ Once Netlify assigns a site, update GoDaddy DNS to:
 |------|---------|
 | **URL** | https://search.google.com/search-console |
 | **Account Owner** | Client should create account |
-| **Status** | Placeholder verification tag installed — needs real code |
+| **Status** | NOT verified — verification meta tag needs to be added directly to HTML files, not through `build-site.js` |
 
 ### Setup Steps
 1. Go to Google Search Console and add property: `milfordpropertymaintenance.com`
 2. Choose "HTML tag" verification method
 3. Copy the `content` value from the meta tag they provide
-4. In `build-site.js`, replace `XXXXXXXXXX` in the `gscVerification` field
-5. Run `node build-site.js` to regenerate all pages
-6. Deploy, then click "Verify" in Search Console
-7. Submit the sitemap: `https://milfordpropertymaintenance.com/sitemap.xml`
+4. Add the verification meta tag directly to the `<head>` section of all HTML files (or at minimum `index.html`)
+5. Deploy, then click "Verify" in Search Console
+6. Submit the sitemap: `https://milfordpropertymaintenance.com/sitemap.xml`
 
 ---
 
@@ -135,6 +134,36 @@ Once Netlify assigns a site, update GoDaddy DNS to:
 
 ---
 
+## SEO Optimizations Completed
+
+| Optimization | Details |
+|------|---------|
+| **Title Tags & Meta Descriptions** | Location-optimized on all 18 pages |
+| **FAQ Schema** | FAQPage structured data on 9 service pages |
+| **Review Schema** | AggregateRating/Review schema on homepage testimonials |
+| **Local Content** | Local town names added to service page content |
+| **Image Compression** | 15 MB saved (~60% reduction) |
+| **CSS & JS Minification** | `styles.min.css`, `inner.min.css`, `main.min.js` |
+| **Email Obfuscation** | Email address obfuscated from web scrapers |
+| **404 Page** | Custom `404.html` error page created |
+| **Lazy Loading** | `loading="lazy"` on below-fold images |
+| **Sitemap** | `sitemap.xml` updated |
+
+---
+
+## Pending Setup
+
+| Task | Notes |
+|------|-------|
+| **Deploy to Netlify** | Set up under developer account, then transfer to client |
+| **Custom Domain DNS** | Point GoDaddy DNS to Netlify once deployed |
+| **Google Search Console** | Verify ownership and submit sitemap |
+| **Google Analytics GA4** | Create property and add tracking code to all HTML files |
+| **Google Business Profile** | Create/claim listing (see section above) |
+| **Professional Email** | Optional — set up info@milfordpropertymaintenance.com |
+
+---
+
 ## Optional / Future
 
 | Service | Purpose | URL |
@@ -156,4 +185,4 @@ Once Netlify assigns a site, update GoDaddy DNS to:
 | Location | Milford, PA |
 | Service Area | Tri-State Area (NY, PA, NJ) |
 
-*To change any of these, update the `SITE` object at the top of `build-site.js` and run `node build-site.js`.*
+*The live site uses hand-edited HTML files, not `build-site.js` output. To change contact info, update it directly in each HTML file. `build-site.js` can be used for future page generation, but the current 18 live pages were edited directly.*
