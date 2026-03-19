@@ -19,6 +19,8 @@ const SITE = {
   makenationUid: '4jiyVbRo1yabf3kCuBoiyZ7R3ob2',
   description: 'Property maintenance, landscaping, snow plowing, and home repair services in Milford PA and the Tri-State Area.',
   ogImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80',
+  ga4Id: 'G-XXXXXXXXXX',           // TODO: Replace with real GA4 Measurement ID
+  gscVerification: 'XXXXXXXXXX',   // TODO: Replace with Google Search Console verification code
 };
 
 // ===================== SHARED COMPONENTS =====================
@@ -29,7 +31,16 @@ const HEAD_COMMON = `  <meta charset="UTF-8">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=1">`;
+  <link rel="stylesheet" href="css/styles.css?v=1">
+  <meta name="google-site-verification" content="${SITE.gscVerification}">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${SITE.ga4Id}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${SITE.ga4Id}');
+  </script>`;
 
 function seoMeta(title, desc, url, extra = '') {
   return `  <title>${title}</title>
