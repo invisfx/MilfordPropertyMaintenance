@@ -19,8 +19,6 @@ const SITE = {
   makenationUid: '4jiyVbRo1yabf3kCuBoiyZ7R3ob2',
   description: 'Property maintenance, landscaping, snow plowing, and home repair services in Milford PA and the Tri-State Area.',
   ogImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80',
-  ga4Id: 'G-XXXXXXXXXX',           // TODO: Replace with real GA4 Measurement ID
-  gscVerification: 'XXXXXXXXXX',   // TODO: Replace with Google Search Console verification code
 };
 
 // ===================== SHARED COMPONENTS =====================
@@ -31,16 +29,7 @@ const HEAD_COMMON = `  <meta charset="UTF-8">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=1">
-  <meta name="google-site-verification" content="${SITE.gscVerification}">
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=${SITE.ga4Id}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '${SITE.ga4Id}');
-  </script>`;
+  <link rel="stylesheet" href="css/styles.css?v=1">`;
 
 function seoMeta(title, desc, url, extra = '') {
   return `  <title>${title}</title>
@@ -395,7 +384,7 @@ ${header('index.html')}
       <a href="#contact" class="btn btn-white">Get a Free Estimate</a>
     </div>
     <div class="hero-image">
-      <img src="images/b8cb4e7d-093e-4f8e-84a1-a8cab1247eb5.jpeg" alt="Flagstone patio with stone steps and Adirondack chairs">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" alt="Beautiful maintained property with green lawn">
     </div>
   </section>
 
@@ -1287,8 +1276,7 @@ const services = [
     faqItems: [],
     otherServices: [
       { href: 'carpentry.html', icon: 'fas fa-hammer', title: 'Carpentry', desc: 'Custom trim and framing around doors and windows.' },
-      { href: 'painting.html', icon: 'fas fa-paint-roller', title: 'Painting & Finishing', desc: 'Fresh paint to complement your new installations.' },
-      { href: 'home-repair.html', icon: 'fas fa-wrench', title: 'Home Repair', desc: 'General handyman services and maintenance.' }
+      { href: 'painting.html', icon: 'fas fa-paint-roller', title: 'Painting & Finishing', desc: 'Fresh paint to complement your new installations.' }
     ]
   },
   {
